@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package forex;
+
+option cc_generic_services = true;
+
+message ForexRequest {
+  string from_currency = 1;
+  string to_currency = 2;
+}
+
+message ForexResponse {
+  double rate = 1;
+  string timestamp = 2;
+}
+
+service ForexService {
+  rpc GetForexRate(ForexRequest) returns (ForexResponse) {}
+}
