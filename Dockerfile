@@ -7,10 +7,12 @@ RUN apt-get update && apt-get install -y \
     libgrpc++-dev \
     libcurl4-openssl-dev \
     protobuf-compiler \
-    curl
+    curl \
+    git
 
-# Copy source code
-COPY . /app
+# Clone the repository
+RUN git clone https://github.com/skatul/forex-grpc-cpp.git /app
+
 WORKDIR /app
 
 # Build the application
